@@ -75,7 +75,17 @@ This code will:
    - Remember that generating this visualization may take over a minute due to data processing and calculations.
 
 ## Data
-This project uses historical stock data retrieved from the `tidyquant` package, which pulls data directly from financial sources like Yahoo Finance. Ensure your internet connection is active when running the script to fetch the data. The webscraping and data processing contribute to the script's execution time.
+This project uses historical stock data retrieved through the `tidyquant` package, which serves as a convenient wrapper for various financial data APIs. Here are some key points about the data:
+
+- **Data Source**: The stock price data is primarily sourced from Yahoo Finance.
+- **Time Frame**: By default, the script retrieves data from January 1, 2013, up to the current date. You can modify this range in the code if needed.
+- **Stock Selection**: The script is set up to analyze AAPL (Apple), GOOG (Google), and NFLX (Netflix) by default, with XLK (Technology Select Sector SPDR Fund) as a benchmark. You can easily modify these to analyze different stocks.
+- **Data Frequency**: The script uses monthly returns for its calculations. This is derived from daily closing prices.
+- **Data Fields**: The retrieved data includes open, high, low, close, volume, and adjusted prices. For the analysis, we primarily use the adjusted closing prices.
+- **Data Processing**: Raw price data is transformed into returns, which are then used to calculate various metrics like the Sharpe ratio.
+- **Data Limitations**: Be aware that free data sources may have limitations in terms of data accuracy, timeliness, or completeness. For critical financial decisions, consider using professional-grade data sources.
+
+Ensure your internet connection is active when running the script to fetch the data. The webscraping and data processing contribute significantly to the script's execution time.
 
 ## Performance Considerations
 - The script's execution time (over 1 minute) is primarily due to:
